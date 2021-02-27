@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import kotlin.random.Random
+import java.util.*;
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,20 +30,21 @@ class MainActivity : AppCompatActivity() {
 
     fun Clique(view: View){
         var aleatorio = Random()
-        aleatorio.nextInt(1,61).toString()
-        var numeroList: List<String> = mutableListOf()
+        val numeroList: List<String> = mutableListOf<String>()
+
 
         for (i in 1..6){
+            aleatorio.nextInt(60).toString()
 
             if(numeroList.isEmpty()){
-                numeroList.add(aleatorio)
+                numeroList.toMutableList().add(aleatorio.toString())
             }else{
-                if (numeroList.contains(aleatorio)){
-                    aleatorio.nextInt(1,61).toString()
-                    numeroList.add(aleatorio)
+                if (numeroList.toMutableList().contains(aleatorio.toString())){
+                    aleatorio.nextInt(60).toString()
+                    numeroList.toMutableList().add(aleatorio.toString())
                 }
                 else{
-                    numeroList.add(aleatorio)
+                    numeroList.toMutableList().add(aleatorio.toString())
                 }
 
             }
@@ -53,3 +54,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+
+
+
