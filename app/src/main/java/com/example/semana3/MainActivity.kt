@@ -30,27 +30,29 @@ class MainActivity : AppCompatActivity() {
 
     fun Clique(view: View){
         var aleatorio = Random()
-        val numeroList: List<String> = mutableListOf<String>()
+        var numeroList: MutableList<String> = mutableListOf<String>()
 
 
         for (i in 1..6){
-            aleatorio.nextInt(60).toString()
+           var sup:Int
+            sup = aleatorio.nextInt(60)
 
             if(numeroList.isEmpty()){
-                numeroList.toMutableList().add(aleatorio.toString())
+                numeroList.add(sup.toString())
             }else{
-                if (numeroList.toMutableList().contains(aleatorio.toString())){
-                    aleatorio.nextInt(60).toString()
-                    numeroList.toMutableList().add(aleatorio.toString())
+                if (numeroList.contains(sup.toString())){
+                   sup = aleatorio.nextInt(60)
+                    numeroList.add(sup.toString())
                 }
                 else{
-                    numeroList.toMutableList().add(aleatorio.toString())
+                    numeroList.add(sup.toString())
                 }
 
             }
 
         }
         Log.i("Valores ->", numeroList.toString())
+
     }
 
 }
